@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { authenticate } from '../store';
+import { authenticate, logout } from '../store';
 // import 'simplebar/dist/simplebar.min.css'
-
 const LoginPage = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.id);
@@ -15,6 +14,9 @@ const LoginPage = () => {
     const password = evt.target.password.value;
     await dispatch(authenticate(username, password, formName));
   };
+  const signout = async () => {
+    logout()
+  }
 
   return (
     <div className='login'>
@@ -55,7 +57,8 @@ const LoginPage = () => {
           </form>
           <Link to='/signup'>
             <button className='signup'>Create your account</button>
-          </Link>
+            </Link>
+            <button onClick={signout}> sign out</button>
         </div>
       )}
     </div>

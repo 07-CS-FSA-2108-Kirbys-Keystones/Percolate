@@ -1,5 +1,11 @@
 
 import history from '../history';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth';
 const TOKEN = 'token'
 
 /**
@@ -15,45 +21,33 @@ const setAuth = auth => ({ type: SET_AUTH, auth })
 /**
  * THUNK CREATORS
  */
-export const me = () => async (dispatch) => {
-  // const token = window.localStorage.getItem(TOKEN);
-  // if (token) {
-  //   const res = await axios.get('/auth/me', {
-  //     headers: {
-  //       authorization: token,
-  //     },
-  //   });
-
-  //   return dispatch(setAuth(res.data));
-  // } else return dispatch(setAuth({}));
-};
 
 export const authenticate =
-  (username, password) => async (dispatch, { getFirebase, getFirestore }) => {
+  (username, password) => async (dispatch) => {
     try {
-      console.log(username, password);
-      const firestore = getFirestore();
-      const firebase = getFirebase()
-      const response = await firebase.auth().signInWithEmailAndPassword(username, password)
-      console.log('back')
-      console.log(response.data())
+      const auth = getAuth()
+      const response = await signInWithEmailAndPassword(auth, username, password);
+      window.localStorage.setItem(TOKEN, response.user.accessToken);
     } catch (authError) {
       return dispatch(setAuth({ error: authError }));
     }
   };
 export const authenticateSignup = (user, method) => async (dispatch) => {
-  // try {
-  //   const res = await axios.post(`/auth/${method}`, user);
-  //   window.localStorage.setItem(TOKEN, res.data.token);
-  //   dispatch(me());
-  // } catch (authError) {
-  //   return dispatch(setAuth({ error: authError }));
-  // }
+
 };
 
 export const logout = () => {
-  window.localStorage.removeItem(TOKEN);
-  history.push('/login');
+  const auth = getAuth();
+  window.localStorage.removeItem(TOKEN)
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log('you signed out')
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error)
+    });
   return {
     type: SET_AUTH,
     auth: {},

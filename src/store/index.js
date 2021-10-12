@@ -4,14 +4,13 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import auth from './auth';
 import { getFirestore, reduxFirestore } from 'redux-firestore';
-import { getFirebase} from 'react-redux-firebase';
 import db from '../firebase';
 const reducer = combineReducers({
   auth,
 });
 const middleware = composeWithDevTools(
   applyMiddleware(
-    thunkMiddleware.withExtraArgument({ getFirebase, getFirestore }),
+    thunkMiddleware.withExtraArgument({getFirestore }),
     createLogger({ collapsed: true })
   ),
   reduxFirestore(db),
