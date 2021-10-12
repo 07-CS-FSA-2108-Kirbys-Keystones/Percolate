@@ -10,6 +10,7 @@ import {
   runTransaction,
   writeBatch,
 } from 'firebase/firestore';
+import Businesses from './components/businesses/allBusinesses/AllBusinesses'
 //how to CRUD with firestore: https://firebase.google.com/docs/firestore/manage-data/add-data#web-version-9
 async function querySnapshot() {
   // let ans = [];
@@ -66,6 +67,7 @@ function App() {
     <div className='App'>
       <h1>Hello World!</h1>
       <Login/>
+      <Businesses/>
     </div>
   );
 }

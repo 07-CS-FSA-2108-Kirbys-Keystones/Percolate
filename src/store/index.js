@@ -5,8 +5,11 @@ import thunkMiddleware from 'redux-thunk';
 import auth from './auth';
 import { getFirestore, reduxFirestore } from 'redux-firestore';
 import db from '../firebase';
+import businessesReducer from './businessesReducer'
+
 const reducer = combineReducers({
   auth,
+  businesses: businessesReducer
 });
 const middleware = composeWithDevTools(
   applyMiddleware(
