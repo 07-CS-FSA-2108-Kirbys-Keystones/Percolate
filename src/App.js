@@ -1,6 +1,15 @@
-import React, { useState, useEffect } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import Login from './components/Login'
+import db from './firebase';
+import {
+  collection,
+  doc,
+  getDocs,
+  getDoc,
+  updateDoc,
+  runTransaction,
+  writeBatch,
+} from 'firebase/firestore';
 //how to CRUD with firestore: https://firebase.google.com/docs/firestore/manage-data/add-data#web-version-9
 async function querySnapshot() {
   // let ans = [];
@@ -56,17 +65,8 @@ function App() {
   return (
     <div className='App'>
       <h1>Hello World!</h1>
-      <h1>All Businesses</h1>
-      <ul>
-        {}
-        <li>
-
-        </li>
-        <li>
-
-        </li>
-      </ul>
-     </div>
+      <Login/>
+    </div>
   );
 }
 
