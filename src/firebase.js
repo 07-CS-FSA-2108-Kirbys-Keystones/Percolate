@@ -3,6 +3,8 @@
 
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
+//store the api key and other protected info into the environment
+//add this file to git ignore
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyD9zxNq0hPgKWsXAIdCsBCGyCoszWaRCEk",
   authDomain: "percolate-1cebe.firebaseapp.com",

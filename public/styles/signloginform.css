@@ -1,0 +1,101 @@
+.login {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.loginbody {
+  display: flex;
+  flex-direction: column;
+
+  width: 500px;;
+  row-gap: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  
+}
+.signin {
+  position:relative;
+  background: #CC0000;
+  color: white;
+  width: 400px;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+.signin:hover {
+  background: #a70101;
+}
+.signup {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  margin: 5px;
+  width: 400px;
+  height: 35px;
+  font-size: 20px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+.signup:hover {
+  background-color: rgb(202, 202, 202);
+}
+#signupform {
+  display: flex;
+  flex-direction: column;
+}
+.error {
+  width: 100px;;
+  height: 10px;
+  color:red;
+  font-size: 10px;
+}
+.errorLogin {
+  color:red;
+  font-size: 13px;
+  align-self: center;
+}
+#keepSignIn {
+  display: flex;
+  column-gap: 10px;
+}
+#box {
+  margin-left:10px;
+  width: 20px;
+  height: 20px;
+}
+.email {
+  width: 80%;
+  width:400px;
+  height: 30px;
+}
+.emailBox {
+  display: flex;
+  justify-content: space-around;
+  height:30px;
+}
+.signupBox {
+  width:405px;
+  text-align: left;
+}
+.signupTitle {
+  width:405px;
+  text-align: center;
+}
+.signupPage {
+  background: #CC0000;
+  color: white;
+  width: 375px;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+.signupPage:hover {
+  background: #a70101;
+}

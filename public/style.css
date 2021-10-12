@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+*,
+body {
+  background-image: url('https://images.thdstatic.com/productImages/bb0a8d37-9c0c-4ed7-84d4-757568a8ad16/svn/chesapeake-wallpaper-samples-3117-79017sam-64_600.jpg')
+  font-family: 'Rubik', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+/*
+*==================================
+*      HEADER / NAV BAR
+*==================================
+*/
+
+.header {
+}
+
+.header-navbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+
+  z-index: 99 !important;
+
+  background-color: rgba(1, 79, 134, 1);
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 10px 10px;
+}
+
+/** Logo (targit) */
+.logo {
+  flex-grow: 0.5;
+  max-width: 70px;
+  max-height: 70px;
+}
+
+/** TarGit.com phrase*/
+.oursite {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: auto 20px auto 5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/** Space between search bar*/
+.blank {
+  flex-grow: 1;
+  display: flex;
+}
+
+/** The products button*/
+.products {
+  color: white;
+  flex-grow: 0.5;
+  height: 30%;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
+}
+.about {
+  flex-grow: 0.5;
+  color: white;
+  height: 30%;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
+}
+.space {
+  flex-grow: 1;
+}
+/** The products button*/
+.products:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.about:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.extras-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0.1;
+  margin-right: 25px;
+}
+
+/** ======= CART ICON ======= */
+
+.cart-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.logo-cart-container:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.logo-cart-container {
+  width: 48px;
+  height: 48px;
+
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.2); */
+
+  border-radius: 50%;
+  display: flex;
+}
+
+.logo-cart {
+  width: 46px;
+  height: 46px;
+
+  padding-top: 2px;
+
+  margin: auto;
+  margin-right: 5px;
+  position: absolute;
+}
+
+.cart-label {
+  font-weight: bold;
+  font-size: 0.7rem;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-30%, -100%);
+}
+
+/** ======= SEARCH BAR ======= */
+
+.search {
+  flex-grow: 3.5;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.25px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+}
+
+.search-input {
+  left: 5px;
+  margin: 2px;
+  margin-left: 10px;
+  width: 90%;
+  height: 100%;
+  border: 0;
+}
+
+.search-label {
+  margin-right: 10px;
+}
+
+/*
+*==================================
+*      Effects for All Pages
+*==================================
+*/
+
+.shadow-nohover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shadow {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shadow:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.zoomable:hover {
+  transform: scale(1.05);
+}
+
+.zoomable-small:hover {
+  transform: scale(1.005);
+}
+
+/*
+*==================================
+*           Slide Loading
+*================================== 
+*/
+
+.slide-loading {
+  animation: slide-loading 0.5s ease-in;
+}
+
+@keyframes slide-loading {
+  0% {
+    transform: skewX(53deg) translateX(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(0px);
+  }
+  62% {
+    transform: skewX(0deg) translateX(30px);
+  }
+  70% {
+    transform: skew(-20deg);
+  }
+  80% {
+    transform: skew(0deg) translate(0);
+  }
+  90% {
+    transform: skew(-5deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+/*
+*==================================
+*           About page
+*================================== 
+*/
+
+.aboutPage {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.author {
+  background-color: rgb(202, 211, 211);
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+  align-self: center;
+  overflow:hidden;
+  object-fit: cover;
+  box-shadow: 0 10px 30px 1px rgb(0 0 0 / 30%);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.billGates {
+  object-position: 0 10%;
+}
+.authors {
+  display: flex;
+  justify-content: space-around;
+}
+
+.aboutbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.aboutAuthor {
+  margin-top: 30px;
+  width: 300px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+label {
+  text-align: center;
+}
+.authorBox {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}

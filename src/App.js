@@ -1,22 +1,50 @@
-import React, { useState } from "react";
-import db from "./firebase";
-import { collection, doc, getDocs, setDoc, updateDoc, deleteDoc } from "firebase/firestore"
-
+import React, { useState } from 'react';
+import db from './firebase';
+import {
+  collection,
+  doc,
+  getDocs,
+  getDoc,
+  updateDoc,
+  runTransaction,
+  writeBatch,
+} from 'firebase/firestore';
 //how to CRUD with firestore: https://firebase.google.com/docs/firestore/manage-data/add-data#web-version-9
-async function querySnapshot(){
-  let ans = []
-  // collectionRef = collection(db, "businesses"))
-  // documentRef = doc(db, "businesses", "LA")
-  //get
-  const businesses = await getDocs(collection(db, "businesses"));
-  businesses.forEach(business=>console.log(business.data()));
+async function querySnapshot() {
+  // let ans = [];
+  // const sfDocRef = doc(db, 'cities', 'Jing');
+  // // Get a new write batch
+  // const batch = writeBatch(db);
+  // // Set the value of 'NYC'
+  // const nycRef = doc(db, 'cities', 'NYC');
+  // batch.set(nycRef, { name: 'New York City' });
+  // const jingRef = doc(db, 'cities', 'Jing');
+  // batch.update(jingRef, { population: 1000000 });
+  // await batch.commit();
+  // try {
+  //   await runTransaction(db, async (transaction) => {
+  //     const sfDoc = await transaction.get(sfDocRef);
+  //     if (!sfDoc.exists()) {
+  //       throw 'Document does not exist!';
+  //     }
 
-// Add a new document in collection "businesses" set doc comes with other options and variations like merge option and addDoc variation
-await setDoc(doc(db, "businesses", "LA"), {
-  id: "Los Angeles",
-  title: "CA",
-  description: "USA"
-});
+  //     const newPopulation = sfDoc.data().population + 1;
+  //     transaction.update(sfDocRef, { population: newPopulation });
+  //   });
+  //   console.log('Transaction successfully committed!');
+  // } catch (e) {
+  //   console.log('Transaction failed: ', e);
+  // }
+
+  // const washingtonRef = doc(db, 'cities', 'Jing');
+  // await updateDoc(washingtonRef, {
+  //   country: 'China',
+  //   name: 'BeiJing',
+  //   state: 'HeBei',
+  //   capital: true,
+  // });
+  //const response = await getDoc(doc(db, 'cities', 'Jing'));
+  //console.log(response.data());
 }
 
 //update a document like so:
@@ -26,14 +54,16 @@ await setDoc(doc(db, "businesses", "LA"), {
 
 //delete this document like so:
 await deleteDoc(doc(db, "businesses", "LA"))
+docRef = doc(db,"businesses", "LA")
+collectionRef = collection(db,"businesses")
 }
 */
 
 function App() {
   querySnapshot();
   return (
-    <div className="App">
-      <h1>Businesses</h1>
+    <div className='App'>
+      <h1>Hello World!</h1>
     </div>
   );
 }
