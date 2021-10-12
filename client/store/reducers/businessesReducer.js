@@ -7,12 +7,12 @@ const initialState = {
 }
 
 //==================== REDUCER FUNCTION ====================
-export default function productsReducer(state = initialState, action) {
+export default function businesssesReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_BUSINESSES:
-      return { ...state, products: action.businesses }
+      return { ...state, businesses: action.businesses }
     case FETCH_BUSINESS:
-      return { ...state, product: action.business }
+      return { ...state, business: action.business }
     default:
       return state
   }

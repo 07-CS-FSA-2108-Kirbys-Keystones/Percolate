@@ -4,14 +4,14 @@ import db from '../../../src/firebase';
 
 // ------------------ Actions creators --------------------
 
-export const _fetchBusinesses = products => ({
+export const _fetchBusinesses = businesses => ({
   type: FETCH_BUSINESSES,
-  products
+  businesses
 })
 
-export const _fetchBusiness = product => ({
+export const _fetchBusiness = business => ({
   type: FETCH_BUSINESS,
-  product
+  business
 })
 
 // ------------------ Thunk creators -----------------------
@@ -20,7 +20,8 @@ export const fetchBusinesses = () => {
   return async dispatch => {
     try {
       const response = await getDocs(collection(db, 'businesses'));
-      dispatch(_fetchBusiness(response.data()))
+      console.log('businesses fetch response:', response)
+      dispatch(_fetchBusiness(response))
     } catch (error) {
       console.log('Failed to fetch all businesses')
       return
