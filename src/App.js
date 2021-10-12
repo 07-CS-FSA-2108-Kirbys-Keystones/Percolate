@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import db from './firebase';
 import {
   collection,
@@ -9,6 +9,7 @@ import {
   runTransaction,
   writeBatch,
 } from 'firebase/firestore';
+import { useDispatch, useSelector } from 'react-redux';
 //how to CRUD with firestore: https://firebase.google.com/docs/firestore/manage-data/add-data#web-version-9
 async function querySnapshot() {
   // let ans = [];
@@ -61,10 +62,29 @@ collectionRef = collection(db,"businesses")
 
 function App() {
   querySnapshot();
+  const { products } = useSelector((state) => state.products);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    //* fetch data
+    async function fetchData() {
+      await dispatch(businessActions.fetchBusinesses());
+      await updateProducts();
+    }
   return (
     <div className='App'>
       <h1>Hello World!</h1>
-    </div>
+      <h1>All Businesses</h1>
+      <ul>
+        {}
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+      </ul>
+     </div>
   );
 }
 

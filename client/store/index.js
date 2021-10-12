@@ -6,13 +6,15 @@ import auth from './auth'
 import productsReducer from './reducers/productsReducer'
 import orderReducer from './reducers/orderReducer'
 import userReducer from './reducers/userReducer'
+import businessesReducer from './reducers/businessesReducer'
 
 //* CombineReducers
 const reducer = combineReducers({
   auth,
   products: productsReducer,
   order: orderReducer,
-  user: userReducer
+  user: userReducer,
+  businesses: businessesReducer
 })
 
 //* Apply the middleware
