@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Login from './components/Login'
-import db from './firebase';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import db from "./firebase";
 import {
   collection,
   doc,
@@ -9,8 +9,8 @@ import {
   updateDoc,
   runTransaction,
   writeBatch,
-} from 'firebase/firestore';
-import Businesses from './components/businesses/allBusinesses/AllBusinesses'
+} from "firebase/firestore";
+import Businesses from "./components/businesses/allBusinesses/AllBusinesses";
 //how to CRUD with firestore: https://firebase.google.com/docs/firestore/manage-data/add-data#web-version-9
 async function querySnapshot() {
   // let ans = [];
@@ -29,7 +29,6 @@ async function querySnapshot() {
   //     if (!sfDoc.exists()) {
   //       throw 'Document does not exist!';
   //     }
-
   //     const newPopulation = sfDoc.data().population + 1;
   //     transaction.update(sfDocRef, { population: newPopulation });
   //   });
@@ -37,7 +36,6 @@ async function querySnapshot() {
   // } catch (e) {
   //   console.log('Transaction failed: ', e);
   // }
-
   // const washingtonRef = doc(db, 'cities', 'Jing');
   // await updateDoc(washingtonRef, {
   //   country: 'China',
@@ -64,10 +62,10 @@ collectionRef = collection(db,"businesses")
 function App() {
   querySnapshot();
   return (
-    <div className='App'>
+    <div className="App">
       <h1>Hello World!</h1>
-      <Login/>
-      <Businesses/>
+      <Login />
+      <Businesses />
     </div>
   );
 }
