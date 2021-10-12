@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import history from '../history';
 const TOKEN = 'token'
 
@@ -16,36 +16,39 @@ const setAuth = auth => ({ type: SET_AUTH, auth })
  * THUNK CREATORS
  */
 export const me = () => async (dispatch) => {
-  const token = window.localStorage.getItem(TOKEN);
-  if (token) {
-    const res = await axios.get('/auth/me', {
-      headers: {
-        authorization: token,
-      },
-    });
+  // const token = window.localStorage.getItem(TOKEN);
+  // if (token) {
+  //   const res = await axios.get('/auth/me', {
+  //     headers: {
+  //       authorization: token,
+  //     },
+  //   });
 
-    return dispatch(setAuth(res.data));
-  } else return dispatch(setAuth({}));
+  //   return dispatch(setAuth(res.data));
+  // } else return dispatch(setAuth({}));
 };
 
 export const authenticate =
-  (username, password, method) => async (dispatch) => {
+  (username, password) => async (dispatch, { getFirebase, getFirestore }) => {
     try {
-      const res = await axios.post(`/auth/${method}`, { username, password });
-      window.localStorage.setItem(TOKEN, res.data.token);
-      dispatch(me());
+      console.log(username, password);
+      const firestore = getFirestore();
+      const firebase = getFirebase()
+      const response = await firebase.auth().signInWithEmailAndPassword(username, password)
+      console.log('back')
+      console.log(response.data())
     } catch (authError) {
       return dispatch(setAuth({ error: authError }));
     }
   };
 export const authenticateSignup = (user, method) => async (dispatch) => {
-  try {
-    const res = await axios.post(`/auth/${method}`, user);
-    window.localStorage.setItem(TOKEN, res.data.token);
-    dispatch(me());
-  } catch (authError) {
-    return dispatch(setAuth({ error: authError }));
-  }
+  // try {
+  //   const res = await axios.post(`/auth/${method}`, user);
+  //   window.localStorage.setItem(TOKEN, res.data.token);
+  //   dispatch(me());
+  // } catch (authError) {
+  //   return dispatch(setAuth({ error: authError }));
+  // }
 };
 
 export const logout = () => {
