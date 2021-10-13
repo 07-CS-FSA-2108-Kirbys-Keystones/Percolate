@@ -22,7 +22,7 @@ export const fetchBusinesses = () => {
       const response = await getDocs(collection(db, 'businesses'));
       let businesses = []
       response.forEach(business=>businesses.push(business.data()))
-      dispatch(_fetchBusiness(businesses))
+      dispatch(_fetchBusinesses(businesses))
       console.log('businesses fetch response:', businesses)
     } catch (error) {
       console.log('Failed to fetch all businesses')

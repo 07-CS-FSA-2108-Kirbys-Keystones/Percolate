@@ -65,6 +65,7 @@ function App() {
     <div className="App">
       <h1>Hello World!</h1>
       <Login />
+      <h1>Businesses:</h1>
       <Businesses />
     </div>
   );

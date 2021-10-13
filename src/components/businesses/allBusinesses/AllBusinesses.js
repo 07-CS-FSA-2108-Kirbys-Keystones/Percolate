@@ -32,16 +32,24 @@ import { fetchBusinesses } from "../../../store/businessActions";
 // };
 
 class Businesses extends Component {
-  constructor() {
-    super();
+  constructor(){
+    super()
   }
 
   componentDidMount() {
-    this.props.fetchBusinesses();
+      this.props.fetchBusinesses();
+      console.log("businesses", this.props.businesses);
   }
+
   render() {
-    console.log("props businesses", this.props.businesses);
-    return <div>hello!!</div>;
+    if (this.props.businesses.businesses.length){
+    return (<div>
+      {this.props.businesses.businesses.map(business=><div>{business.name}</div>)}
+      </div>);
+    }
+    else{
+      return(<div>hiiii</div>)
+    }
   }
 }
 
